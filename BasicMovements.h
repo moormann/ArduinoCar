@@ -40,16 +40,28 @@ class BasicMovements{
       if(x <=  1 && y <=  1 &&
          x >= -1 && y >= -1){
 
-        if( x >= 0 ){
+        if( x > 0 ){
           motor(2, BACKWARD, int(255 * x));
+          motor(4, BACKWARD, int(255 * x));
+
+        }else if(x < 0){
+          motor(2, BACKWARD, int(-255 * x));
+          motor(4, BACKWARD, int(-255 * x));
+
         }else{
-          motor(2, FORWARD, int(255 * x));
+          motor(2, RELEASE, 0);
         }
 
-        if( y >= 0 ){
+        if( y > 0 ){
           motor(1, FORWARD, int(255 * y));
+          motor(3, FORWARD, int(255 * y));
+
+        }else if(y < 0){
+          motor(1, BACKWARD, int(-255 * y));
+          motor(3, BACKWARD, int(-255 * y));
+
         }else{
-          motor(1, BACKWARD, int(255 * y));
+          motor(1, RELEASE, 0);
         }
       }
     }
